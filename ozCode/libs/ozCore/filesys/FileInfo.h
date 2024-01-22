@@ -1,4 +1,5 @@
 #pragma once
+#include "../ozCore.h"
 
 #include <QFileInfo>
 
@@ -10,7 +11,7 @@
 
 #include "../Types.h"
 
-class FileInfo : QFileInfo
+class OZCORE_EXPORT FileInfo : QFileInfo
 {
 public:
 

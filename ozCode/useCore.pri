@@ -3,7 +3,8 @@ include(LIBDIR.pri)
 include(DESTDIR.pri)
 
 INCLUDEPATH *= $$LIBDIR/ozCore
-LIBS *= -lozCore
+windows:LIBS *= -lozCore2
+linux:LIBS *= -lozCore
 LIBS *= -L$$DESTDIR
 message(--------/src/useCore.pri LIBS=$$LIBS DESTDIR==$$DESTDIR LIBDIR==$$LIBDIR )
 

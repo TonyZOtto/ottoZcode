@@ -1,11 +1,12 @@
 #pragma once
+#include "../ozCore.h"
 
 #include <QObject>
 
 #include <QString>
 #include <QStringList>
 
-class ObjectHelper
+class OZCORE_EXPORT ObjectHelper
 {
 public:
     ObjectHelper(const QObject * obj);

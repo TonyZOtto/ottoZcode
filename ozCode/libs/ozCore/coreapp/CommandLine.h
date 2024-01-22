@@ -1,8 +1,9 @@
 #pragma once
+#include "../ozCore.h"
 
 #include <QObject>
 
-class CommandLine : public QObject
+class OZCORE_EXPORT CommandLine : public QObject
 {
     Q_OBJECT
 public:
