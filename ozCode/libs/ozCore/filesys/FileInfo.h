@@ -8,7 +8,7 @@
 #include <QStringList>
 #include <QTimeZone>
 
-#include "../Types.h"
+#include "../base/Types.h"
 
 class FileInfo : QFileInfo
 {
