@@ -11,13 +11,15 @@ public:
     StatusConsoleApplication(int argc, char *argv[]);
 
 public slots:
-    void start();
+    virtual void initialize();
+    virtual void configure();
+    virtual void start();
+    virtual void finish();
 
 private slots:
     void exeInfo();
     void qtInfo();
     void libInfo();
-    void finish();
 
 private:
     QStringList mLibraryNames;

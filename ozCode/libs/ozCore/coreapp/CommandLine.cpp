@@ -3,3 +3,8 @@
 CommandLine::CommandLine(QObject *parent)
     : QObject{parent}
 {}
+
+void CommandLine::process()
+{
+
+}

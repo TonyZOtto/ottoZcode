@@ -16,3 +16,23 @@ ConsoleStdIO *ConsoleApplication::io() const
     return mpStdIO;
 }
 
+void ConsoleApplication::initialize()
+{
+    BaseApplication::initialize();
+}
+
+void ConsoleApplication::configure()
+{
+
+}
+
+void ConsoleApplication::start()
+{
+
+}
+
+void ConsoleApplication::finish()
+{
+
+}
+

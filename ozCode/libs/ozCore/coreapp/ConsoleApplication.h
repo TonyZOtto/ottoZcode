@@ -19,6 +19,14 @@ public: // const
 
 public: // non-const
 
+public slots:
+    virtual void initialize();
+    virtual void configure();
+    virtual void start();
+    virtual void finish();
+
+protected:
+
 private:
     ConsoleStdIO * mpStdIO=nullptr;
 };

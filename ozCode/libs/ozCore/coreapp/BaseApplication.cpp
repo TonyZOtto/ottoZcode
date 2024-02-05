@@ -17,7 +17,7 @@ BaseApplication::BaseApplication(int argc, char *argv[],
     , cmpCommandLine(new CommandLine(this))
     , cmpApplicationSettings(new ApplicationSettings(this))
     , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-    , cmRawArgumentList(parseArguments(argc, argv))
+    , cmRawArgumentList(parseRawArguments(argc, argv))
 
 {
     Q_CHECK_PTR(cmpQCoreApplication);
@@ -34,7 +34,7 @@ BaseApplication::BaseApplication(int argc, char *argv[], GuiApplication *gui)
     , cmpCommandLine(new CommandLine(this))
     , cmpApplicationSettings(new ApplicationSettings(this))
     , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-    , cmRawArgumentList(parseArguments(argc, argv))
+    , cmRawArgumentList(parseRawArguments(argc, argv))
 {
     Q_CHECK_PTR(cmpQGuiApplication);
     setObjectName("BaseApplication:" + cmpQGuiApplication->applicationName());
@@ -49,7 +49,7 @@ BaseApplication::BaseApplication(int argc, char *argv[], WidgetApplication *wgta
     , cmpCommandLine(new CommandLine(this))
     , cmpApplicationSettings(new ApplicationSettings(this))
     , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-    , cmRawArgumentList(parseArguments(argc, argv))
+    , cmRawArgumentList(parseRawArguments(argc, argv))
 {
     Q_CHECK_PTR(cmpQApplication);
     setObjectName("BaseApplication:" + cmpQApplication->applicationName());
@@ -75,8 +75,27 @@ const QApplication *BaseApplication::widgetApplication() const
     return cmpQApplication;
 }
 
+void BaseApplication::initialize()
+{
+    // TODO TBD
+//    addOptions();
+//    processOptions();
+    commandLine()->process();
+}
+
+void BaseApplication::addOption()
+{
+    Q_ASSERT(!"MUSTDO"); // MUSTDO
+}
+
+void BaseApplication::processOptions()
+{
+    Q_ASSERT(!"MUSTDO"); // MUSTDO
+
+}
+
 // static
-QStringList BaseApplication::parseArguments(int argc, char *argv[])
+QStringList BaseApplication::parseRawArguments(int argc, char *argv[])
 {
     QStringList result;
     for (int ix = 0; ix < argc; ++ix)

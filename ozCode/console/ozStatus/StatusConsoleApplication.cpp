@@ -20,6 +20,16 @@ StatusConsoleApplication::StatusConsoleApplication(int argc, char *argv[])
     io()->writeline(QString("Hello %1").arg(QCoreApplication::applicationName()));
 }
 
+void StatusConsoleApplication::initialize()
+{
+
+}
+
+void StatusConsoleApplication::configure()
+{
+
+}
+
 void StatusConsoleApplication::start()
 {
     qInfo() << Q_FUNC_INFO << objectName();

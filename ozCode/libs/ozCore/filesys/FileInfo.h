@@ -11,7 +11,7 @@
 
 #include "../Types.h"
 
-class OZCORE_EXPORT FileInfo : QFileInfo
+class OZCORE_EXPORT FileInfo : public QFileInfo
 {
 public:
 
@@ -22,6 +22,7 @@ public: // ctors
 
 public: // const
     bool isNull() const;
+    bool isSuffix(const QString &sfx) const;
     Count byteCount() const;
     QStringList infoStrings(int verbosity=-1) const;
     QFile * file(const QIODevice::OpenMode &mode,

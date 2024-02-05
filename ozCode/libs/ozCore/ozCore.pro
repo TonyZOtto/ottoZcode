@@ -17,6 +17,7 @@ SOURCES += \
     coreapp/ConsoleApplication.cpp \
     coreapp/ConsoleStdIO.cpp \
     coreapp/ObjectHelper.cpp \
+    coreapp/SettingsName.cpp \
     filesys/FileInfo.cpp \
     ozCore.cpp
 
@@ -34,6 +35,7 @@ HEADERS += \
     coreapp/ConsoleApplication.h \
     coreapp/ConsoleStdIO.h \
     coreapp/ObjectHelper.h \
+    coreapp/SettingsName.h \
     filesys/FileInfo.h \
     ozCore_global.h \
     ozCore.h
