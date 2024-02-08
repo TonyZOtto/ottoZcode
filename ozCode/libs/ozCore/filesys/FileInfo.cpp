@@ -5,6 +5,16 @@
 FileInfo::FileInfo() {;}
 FileInfo::FileInfo(const QString &fpath) : QFileInfo(fpath) {;}
 
+bool FileInfo::isNull() const
+{
+    return fileName().isEmpty();
+}
+
+bool FileInfo::isSuffix(const QString &sfx) const
+{
+    return suffix().compare(sfx, Qt::CaseInsensitive);
+}
+
 QStringList FileInfo::infoStrings(int verbosity) const
 {
     QStringList result;

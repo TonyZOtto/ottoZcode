@@ -59,7 +59,7 @@ private:
     const ConsoleApplication * cmpConsoleApplication=nullptr;
     const GuiApplication * cmpGuiApplication=nullptr;
     const WidgetApplication * cmpWidgetApplication=nullptr;
-    const CommandLine * cmpCommandLine=nullptr;
+    CommandLine * mpCommandLine=nullptr;
     const ApplicationSettings * cmpApplicationSettings=nullptr;
     const FileInfo cmExeFileInfo;
     const QStringList cmRawArgumentList;
@@ -75,4 +75,9 @@ inline const FileInfo BaseApplication::exeFileInfo() const
 inline const QStringList BaseApplication::rawArgumentList() const
 {
     return cmRawArgumentList;
+}
+
+inline CommandLine *BaseApplication::commandLine() const
+{
+    return mpCommandLine;
 }

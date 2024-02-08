@@ -22,7 +22,7 @@ SettingsName::Type SettingsName::set(const QString &name, const bool okNotExist)
     mSystemScope = mString.startsWith('$');
     if (systemScope()) mString.removeFirst();
     if (mString.contains(QRegularExpression("[/.\\]")))
-        mType = setFileName(mString);
+        mType = setFileName(mString, okNotExist);
     if ($null == mType)
         mType = setOrgApp(mString);
     return type();
