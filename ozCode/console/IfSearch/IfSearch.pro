@@ -6,10 +6,14 @@ include(../console.pri)
 include(../../useCore.pri)
 
 SOURCES += \
+        ConsoleInitializer.cpp \
+        ConsoleProperties.cpp \
         IfSearchConsoleApplication.cpp \
         main.cpp
 
 HEADERS += \
+    ConsoleInitializer.h \
+    ConsoleProperties.h \
     IfSearchConsoleApplication.h
 
 # Default rules for deployment.
