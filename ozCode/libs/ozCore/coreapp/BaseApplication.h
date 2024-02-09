@@ -26,8 +26,6 @@ public:
 
 public: // const
     const FileInfo exeFileInfo() const;
-    const QStringList rawArgumentList() const;
-    const QStringList positionalArguments() const;
     const QCoreApplication *coreApplication() const;
     const QGuiApplication *guiApplication() const;
     const QApplication * widgetApplication() const;
@@ -38,19 +36,17 @@ public: // non-const
 
 public slots:
     virtual void initialize();
-    virtual void configure();
-    virtual void start();
-    virtual void finish();
+    virtual void configure() {;} // MUDTDO
+    virtual void start() {;} // MUSTDO
+    virtual void finish() {;} // MUSTDO
 
 protected:
     void addOption();
-    virtual void addOptions(); // = 0
+    virtual void addOptions() {;} // MUSTDO // = 0
     virtual void processOptions();
 
 signals:
 
-private: // static
-    static QStringList parseRawArguments(int argc, char *argv[]);
 
 private:
     const QCoreApplication * cmpQCoreApplication=nullptr;
@@ -62,19 +58,11 @@ private:
     CommandLine * mpCommandLine=nullptr;
     const ApplicationSettings * cmpApplicationSettings=nullptr;
     const FileInfo cmExeFileInfo;
-    const QStringList cmRawArgumentList;
-    QStringList mCommandArguments;
-    QStringList mPositionalArguments;
 };
 
 inline const FileInfo BaseApplication::exeFileInfo() const
 {
     return cmExeFileInfo;
-}
-
-inline const QStringList BaseApplication::rawArgumentList() const
-{
-    return cmRawArgumentList;
 }
 
 inline CommandLine *BaseApplication::commandLine() const

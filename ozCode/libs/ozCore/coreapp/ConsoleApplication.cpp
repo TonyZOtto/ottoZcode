@@ -7,7 +7,7 @@ ConsoleApplication::ConsoleApplication(int argc, char *argv[])
     , mpStdIO(new ConsoleStdIO(this))
 {
     setObjectName("ConsoleApplication:" + QCoreApplication::applicationName());
-    qInfo() << Q_FUNC_INFO << objectName() << rawArgumentList();
+    qInfo() << Q_FUNC_INFO << objectName();
 }
 
 ConsoleStdIO *ConsoleApplication::io() const

@@ -10,31 +10,28 @@
 
 
 BaseApplication::BaseApplication(int argc, char *argv[],
-                                 ConsoleApplication *console)
+                                 ConsoleApplication *conapp)
     : QObject(nullptr)
     , cmpQCoreApplication(new QCoreApplication(argc, argv))
-    , cmpConsoleApplication(console)
-    , mpCommandLine(new CommandLine(this))
+    , cmpConsoleApplication(conapp)
+    , mpCommandLine(new CommandLine(argc, argv, this))
     , cmpApplicationSettings(new ApplicationSettings(this))
     , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-    , cmRawArgumentList(parseRawArguments(argc, argv))
 
 {
     Q_CHECK_PTR(cmpQCoreApplication);
-    Q_ASSERT( ! QCoreApplication::arguments().isEmpty());
     setObjectName("BaseApplication:" + cmpQCoreApplication->applicationName());
     qInfo() << Q_FUNC_INFO << objectName();
 
 }
 
-BaseApplication::BaseApplication(int argc, char *argv[], GuiApplication *gui)
+BaseApplication::BaseApplication(int argc, char *argv[], GuiApplication *guiapp)
     : QObject(nullptr)
     , cmpQGuiApplication(new QGuiApplication(argc, argv))
-    , cmpGuiApplication(gui)
-    , mpCommandLine(new CommandLine(this))
+    , cmpGuiApplication(guiapp)
+    , mpCommandLine(new CommandLine(argc, argv, this))
     , cmpApplicationSettings(new ApplicationSettings(this))
     , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-    , cmRawArgumentList(parseRawArguments(argc, argv))
 {
     Q_CHECK_PTR(cmpQGuiApplication);
     setObjectName("BaseApplication:" + cmpQGuiApplication->applicationName());
@@ -46,10 +43,9 @@ BaseApplication::BaseApplication(int argc, char *argv[], WidgetApplication *wgta
     : QObject(nullptr)
     , cmpQApplication(new QApplication(argc, argv))
     , cmpWidgetApplication(wgtapp)
-    , mpCommandLine(new CommandLine(this))
+    , mpCommandLine(new CommandLine(argc, argv, this))
     , cmpApplicationSettings(new ApplicationSettings(this))
     , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-    , cmRawArgumentList(parseRawArguments(argc, argv))
 {
     Q_CHECK_PTR(cmpQApplication);
     setObjectName("BaseApplication:" + cmpQApplication->applicationName());
@@ -94,13 +90,5 @@ void BaseApplication::processOptions()
 
 }
 
-// static
-QStringList BaseApplication::parseRawArguments(int argc, char *argv[])
-{
-    QStringList result;
-    for (int ix = 0; ix < argc; ++ix)
-        result.append(QString(argv[ix]));
-    return result;
-}
 
 
