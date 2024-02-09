@@ -47,7 +47,6 @@ protected:
 
 signals:
 
-
 private:
     const QCoreApplication * cmpQCoreApplication=nullptr;
     const QGuiApplication * cmpQGuiApplication=nullptr;

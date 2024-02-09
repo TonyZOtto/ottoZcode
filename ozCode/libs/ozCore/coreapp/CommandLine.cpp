@@ -4,11 +4,16 @@
 
 CommandLine::CommandLine(int argc, char *argv[], BaseApplication *parent)
     : QObject{parent}
+    , cmExeFileName(*argv)
     , cmRawArgumentList(parseRawArguments(argc, argv))
-{}
+{
+
+}
+
 
 void CommandLine::process()
 {
+    QStringList tInArgs, tOutArgs;
 
 }
 
@@ -16,7 +21,7 @@ void CommandLine::process()
 QStringList CommandLine::parseRawArguments(int argc, char *argv[])
 {
     QStringList result;
-    for (int ix = 0; ix < argc; ++ix)
+    for (int ix = 1; ix < argc; ++ix)
         result.append(QString(argv[ix]));
     return result;
 }

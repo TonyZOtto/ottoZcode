@@ -19,6 +19,8 @@ SOURCES += \
     coreapp/ObjectHelper.cpp \
     coreapp/SettingsName.cpp \
     filesys/FileInfo.cpp \
+    ident/Key.cpp \
+    ident/KeyMap.cpp \
     ident/KeySeg.cpp \
     ozCore.cpp
 
@@ -38,6 +40,8 @@ HEADERS += \
     coreapp/ObjectHelper.h \
     coreapp/SettingsName.h \
     filesys/FileInfo.h \
+    ident/Key.h \
+    ident/KeyMap.h \
     ident/KeySeg.h \
     ozCore_global.h \
     ozCore.h
