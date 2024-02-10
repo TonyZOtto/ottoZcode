@@ -8,16 +8,19 @@ class IfSearchConsoleApplication;
 class ConsoleInitializer : public QObject
 {
     Q_OBJECT
-public:
+public: // ctors
     explicit ConsoleInitializer(IfSearchConsoleApplication *parent = nullptr);
+
+public: // non-const
+    void initialize();
+
 
 signals:
 
-private slots:
+private:
     void initializeIO();
     void hello();
     void setDefaults();
-
     void goodbye();
 
 private:

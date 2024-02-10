@@ -25,7 +25,7 @@ public:
 signals:
 
 private:
-    State m_state=$null;
+//    State m_state=$null;
 
 };
 

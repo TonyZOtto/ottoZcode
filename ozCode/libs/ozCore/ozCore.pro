@@ -16,8 +16,10 @@ SOURCES += \
     coreapp/CommandLine.cpp \
     coreapp/ConsoleApplication.cpp \
     coreapp/ConsoleStdIO.cpp \
+    coreapp/DesktopApplication.cpp \
     coreapp/ObjectHelper.cpp \
     coreapp/SettingsName.cpp \
+    coreapp/WidgetApplication.cpp \
     filesys/FileInfo.cpp \
     ident/Key.cpp \
     ident/KeyMap.cpp \
@@ -37,8 +39,10 @@ HEADERS += \
     coreapp/CommandLine.h \
     coreapp/ConsoleApplication.h \
     coreapp/ConsoleStdIO.h \
+    coreapp/DesktopApplication.h \
     coreapp/ObjectHelper.h \
     coreapp/SettingsName.h \
+    coreapp/WidgetApplication.h \
     filesys/FileInfo.h \
     ident/Key.h \
     ident/KeyMap.h \

@@ -20,6 +20,7 @@ public:
 
 
 public: // pointers
+    ConsoleInitializer * initializer();
     ConsoleProperties * props();
 
 public slots:
@@ -49,9 +50,14 @@ private:
 
 };
 
+inline ConsoleInitializer *IfSearchConsoleApplication::initializer()
+{
+    Q_CHECK_PTR(mpInitializer); return mpInitializer;
+}
+
 inline ConsoleProperties *IfSearchConsoleApplication::props()
 {
-    return mpProperties;
+    Q_CHECK_PTR(mpProperties); return mpProperties;
 }
 
 #endif // IFSEARCHCONSOLEAPPLICATION_H

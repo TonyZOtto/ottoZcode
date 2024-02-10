@@ -3,7 +3,7 @@
 #include "ConsoleStdIO.h"
 
 ConsoleApplication::ConsoleApplication(int argc, char *argv[])
-    : BaseApplication(argc, argv, this)
+    : BaseApplication(argc, argv, BaseApplication::Console)
     , mpStdIO(new ConsoleStdIO(this))
 {
     setObjectName("ConsoleApplication:" + QCoreApplication::applicationName());
@@ -23,16 +23,19 @@ void ConsoleApplication::initialize()
 
 void ConsoleApplication::configure()
 {
+    BaseApplication::configure();
 
 }
 
 void ConsoleApplication::start()
 {
+    BaseApplication::start();
 
 }
 
 void ConsoleApplication::finish()
 {
+    BaseApplication::finish();
 
 }
 

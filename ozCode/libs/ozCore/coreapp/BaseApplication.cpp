@@ -6,87 +6,49 @@
 
 #include "../filesys/FileInfo.h"
 #include "ApplicationSettings.h"
+#include "ConsoleApplication.h"
+#include "DesktopApplication.h"
+#include "WidgetApplication.h"
 #include "CommandLine.h"
 
 
-BaseApplication::BaseApplication(int argc, char *argv[],
-                                 ConsoleApplication *conapp)
+BaseApplication::BaseApplication(int argc, char *argv[], const Class appClass)
     : QObject(nullptr)
-    , cmpQCoreApplication(new QCoreApplication(argc, argv))
-    , cmpConsoleApplication(conapp)
     , mpCommandLine(new CommandLine(argc, argv, this))
     , cmpApplicationSettings(new ApplicationSettings(this))
-    , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-
+    , cmExeFileInfo(FileInfo(*argv))
 {
-    Q_CHECK_PTR(cmpQCoreApplication);
-    setObjectName("BaseApplication:" + cmpQCoreApplication->applicationName());
+    switch (appClass)
+    {
+    case Console:
+        mpQCoreApplication = new QCoreApplication(argc, argv);
+        mpConsoleApplication = new ConsoleApplication(argc, argv);
+        break;
+
+    default:
+        Q_ASSERT(!"MUSTDO"); // MUSTDO Desktop & Widget
+        break;
+    }
+    setObjectName("BaseApplication:" + mpQCoreApplication->applicationName());
     qInfo() << Q_FUNC_INFO << objectName();
 
-}
-
-BaseApplication::BaseApplication(int argc, char *argv[], GuiApplication *guiapp)
-    : QObject(nullptr)
-    , cmpQGuiApplication(new QGuiApplication(argc, argv))
-    , cmpGuiApplication(guiapp)
-    , mpCommandLine(new CommandLine(argc, argv, this))
-    , cmpApplicationSettings(new ApplicationSettings(this))
-    , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-{
-    Q_CHECK_PTR(cmpQGuiApplication);
-    setObjectName("BaseApplication:" + cmpQGuiApplication->applicationName());
-    qInfo() << Q_FUNC_INFO << objectName();
-
-}
-
-BaseApplication::BaseApplication(int argc, char *argv[], WidgetApplication *wgtapp)
-    : QObject(nullptr)
-    , cmpQApplication(new QApplication(argc, argv))
-    , cmpWidgetApplication(wgtapp)
-    , mpCommandLine(new CommandLine(argc, argv, this))
-    , cmpApplicationSettings(new ApplicationSettings(this))
-    , cmExeFileInfo(FileInfo(QCoreApplication::applicationFilePath()))
-{
-    Q_CHECK_PTR(cmpQApplication);
-    setObjectName("BaseApplication:" + cmpQApplication->applicationName());
-    qInfo() << Q_FUNC_INFO << objectName();
-
-}
-
-const QCoreApplication * BaseApplication::coreApplication() const
-{
-    Q_CHECK_PTR(cmpQCoreApplication);
-    return cmpQCoreApplication;
-}
-
-const QGuiApplication *BaseApplication::guiApplication() const
-{
-    Q_CHECK_PTR(cmpQGuiApplication);
-    return cmpQGuiApplication;
-}
-
-const QApplication *BaseApplication::widgetApplication() const
-{
-    Q_CHECK_PTR(cmpQApplication);
-    return cmpQApplication;
 }
 
 void BaseApplication::initialize()
 {
     // TODO TBD
-//    addOptions();
-//    processOptions();
+    processOptions();
     commandLine()->process();
 }
 
 void BaseApplication::addOption()
 {
-    Q_ASSERT(!"MUSTDO"); // MUSTDO
+    // MUSTDO
 }
 
 void BaseApplication::processOptions()
 {
-    Q_ASSERT(!"MUSTDO"); // MUSTDO
+    // MUSTDO
 
 }
 
