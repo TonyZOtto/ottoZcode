@@ -1,38 +1,38 @@
-#include "ConsoleInitializer.h"
+#include "IfSearchInitializer.h"
 
 #include <QCoreApplication>
 
-#include "IfSearchConsoleApplication.h"
+#include "IfSearchApplication.h"
 
-ConsoleInitializer::ConsoleInitializer(IfSearchConsoleApplication *parent)
+IfSearchInitializer::IfSearchInitializer(IfSearchApplication *parent)
     : QObject{parent}
 {
     setObjectName("ConsoleInitializer:" + QCoreApplication::applicationName());
 }
 
-void ConsoleInitializer::initialize()
+void IfSearchInitializer::initialize()
 {
     // MUSTDO ConsoleInitializer::initialize()
 }
 
-void ConsoleInitializer::initializeIO()
+void IfSearchInitializer::initializeIO()
 {
     // MUSTDO ConsoleInitializer::initializeIO()
 }
 
-void ConsoleInitializer::hello()
+void IfSearchInitializer::hello()
 {
 // MUSTDO ConsoleInitializer::hello()
 
 }
 
-void ConsoleInitializer::setDefaults()
+void IfSearchInitializer::setDefaults()
 {
 // MUSTDO ConsoleInitializer::setDefaults()
 
 }
 
-void ConsoleInitializer::goodbye()
+void IfSearchInitializer::goodbye()
 {
 // MUSTDO ConsoleInitializer::goodbye()
 

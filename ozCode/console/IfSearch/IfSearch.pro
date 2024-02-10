@@ -6,15 +6,15 @@ include(../console.pri)
 include(../../useCore.pri)
 
 SOURCES += \
-        ConsoleInitializer.cpp \
-        ConsoleProperties.cpp \
-        IfSearchConsoleApplication.cpp \
+        IfSearchApplication.cpp \
+        IfSearchInitializer.cpp \
+        IfSearchProperties.cpp \
         main.cpp
 
 HEADERS += \
-    ConsoleInitializer.h \
-    ConsoleProperties.h \
-    IfSearchConsoleApplication.h
+    IfSearchApplication.h \
+    IfSearchInitializer.h \
+    IfSearchProperties.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

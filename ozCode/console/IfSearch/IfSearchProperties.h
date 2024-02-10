@@ -1,9 +1,9 @@
-#ifndef CONSOLEPROPERTIES_H
-#define CONSOLEPROPERTIES_H
+#ifndef IFSEARCHPROPERTIES_H
+#define IFSEARCHPROPERTIES_H
 
 #include <QObject>
 
-class ConsoleProperties : public QObject
+class IfSearchProperties : public QObject
 {
     Q_OBJECT
 public: // types
@@ -20,7 +20,7 @@ public: // types
     };
 
 public:
-    explicit ConsoleProperties(QObject *parent = nullptr);
+    explicit IfSearchProperties(QObject *parent = nullptr);
 
 signals:
 
@@ -29,4 +29,4 @@ private:
 
 };
 
-#endif // CONSOLEPROPERTIES_H
+#endif // IFSEARCHPROPERTIES_H

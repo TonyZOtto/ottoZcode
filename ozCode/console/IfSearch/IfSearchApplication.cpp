@@ -1,4 +1,4 @@
-#include "IfSearchConsoleApplication.h"
+#include "IfSearchApplication.h"
 
 
 #include <QtDebug>
@@ -10,10 +10,10 @@
 #include <ConsoleStdIO>
 #include <FileInfo>
 
-#include "ConsoleInitializer.h"
-#include "ConsoleProperties.h"
+#include "IfSearchInitializer.h"
+#include "IfSearchProperties.h"
 
-IfSearchConsoleApplication::IfSearchConsoleApplication(int argc, char *argv[])
+IfSearchApplication::IfSearchApplication(int argc, char *argv[])
     : ConsoleApplication(argc, argv)
 {
     setObjectName("IfSearchConsoleApplication:" + QCoreApplication::applicationName());
@@ -22,7 +22,7 @@ IfSearchConsoleApplication::IfSearchConsoleApplication(int argc, char *argv[])
                      QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 }
 
-void IfSearchConsoleApplication::initialize()
+void IfSearchApplication::initialize()
 {
     io()->writeline(QString("Initializing %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
     ConsoleApplication::initialize();
@@ -30,7 +30,7 @@ void IfSearchConsoleApplication::initialize()
     emit initialized();
 }
 
-void IfSearchConsoleApplication::configure()
+void IfSearchApplication::configure()
 {
     io()->writeline(QString("Configurating %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
     ConsoleApplication::configure();
@@ -38,7 +38,7 @@ void IfSearchConsoleApplication::configure()
     emit configured();
 }
 
-void IfSearchConsoleApplication::start()
+void IfSearchApplication::start()
 {
     io()->writeline(QString("Starting %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
     ConsoleApplication::start();
@@ -46,7 +46,7 @@ void IfSearchConsoleApplication::start()
     emit started();
 }
 
-void IfSearchConsoleApplication::finish()
+void IfSearchApplication::finish()
 {
     io()->writeline(QString("Finishing %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
     ConsoleApplication::finish();
@@ -54,12 +54,12 @@ void IfSearchConsoleApplication::finish()
     emit finished();
 }
 
-void IfSearchConsoleApplication::addOptions()
+void IfSearchApplication::addOptions()
 {
     // TODO
 }
 
-void IfSearchConsoleApplication::processOptions()
+void IfSearchApplication::processOptions()
 {
     // TODO
 }
