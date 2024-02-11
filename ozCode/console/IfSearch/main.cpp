@@ -14,6 +14,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationVersion(VER_STRING);
     QCoreApplication::setOrganizationName(VER_ORGNAME);
 
-    QTimer::singleShot(500, &a, &IfSearchApplication::initialize);
+    QTimer::singleShot(500, &a, &IfSearchApplication::start);
     return a.coreApplication()->exec();
 }

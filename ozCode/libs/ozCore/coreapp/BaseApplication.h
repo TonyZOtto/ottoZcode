@@ -32,10 +32,11 @@ public: // pointers
     const QCoreApplication *coreApplication() const;
     const QGuiApplication *guiApplication() const;
     const QApplication * widgetApplication() const;
+    ConsoleApplication *console() const;
     CommandLine *commandLine() const;
     const ApplicationSettings * applicationSettings() const;
 
-protected:
+public: // non-const
     void initialize();
     void configure() {;} // MUDTDO
     void start() {;} // MUSTDO
@@ -43,6 +44,8 @@ protected:
     void addOption();
     void addOptions() {;} // MUSTDO
     void processOptions();
+
+protected:
 
 signals:
 
@@ -66,6 +69,11 @@ inline const FileInfo BaseApplication::exeFileInfo() const
 inline const QCoreApplication *BaseApplication::coreApplication() const
 {
     Q_CHECK_PTR(mpQCoreApplication); return mpQCoreApplication;
+}
+
+inline ConsoleApplication *BaseApplication::console() const
+{
+    Q_CHECK_PTR(mpConsoleApplication); return mpConsoleApplication;
 }
 
 inline CommandLine *BaseApplication::commandLine() const

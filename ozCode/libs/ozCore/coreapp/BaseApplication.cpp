@@ -22,7 +22,7 @@ BaseApplication::BaseApplication(int argc, char *argv[], const Class appClass)
     {
     case Console:
         mpQCoreApplication = new QCoreApplication(argc, argv);
-        mpConsoleApplication = new ConsoleApplication(argc, argv);
+        mpConsoleApplication = new ConsoleApplication(this);
         break;
 
     default:

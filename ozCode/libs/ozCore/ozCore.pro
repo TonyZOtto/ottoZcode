@@ -24,6 +24,7 @@ SOURCES += \
     ident/Key.cpp \
     ident/KeyMap.cpp \
     ident/KeySeg.cpp \
+    ident/VersionInfo.cpp \
     ozCore.cpp
 
 HEADERS += \
@@ -47,6 +48,7 @@ HEADERS += \
     ident/Key.h \
     ident/KeyMap.h \
     ident/KeySeg.h \
+    ident/VersionInfo.h \
     ozCore_global.h \
     ozCore.h
 

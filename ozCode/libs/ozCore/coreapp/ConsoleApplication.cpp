@@ -1,41 +1,40 @@
 #include "ConsoleApplication.h"
 
+#include <QtDebug>
+#include <QCoreApplication>
+
+#include "BaseApplication.h"
 #include "ConsoleStdIO.h"
 
-ConsoleApplication::ConsoleApplication(int argc, char *argv[])
-    : BaseApplication(argc, argv, BaseApplication::Console)
+ConsoleApplication::ConsoleApplication(BaseApplication *parent)
+    : QObject(parent)
+    , mpBaseApplication(parent)
     , mpStdIO(new ConsoleStdIO(this))
 {
     setObjectName("ConsoleApplication:" + QCoreApplication::applicationName());
     qInfo() << Q_FUNC_INFO << objectName();
 }
 
-ConsoleStdIO *ConsoleApplication::io() const
-{
-    Q_CHECK_PTR(mpStdIO);
-    return mpStdIO;
-}
-
 void ConsoleApplication::initialize()
 {
-    BaseApplication::initialize();
+    base()->initialize();
 }
 
 void ConsoleApplication::configure()
 {
-    BaseApplication::configure();
+    base()->configure();
 
 }
 
 void ConsoleApplication::start()
 {
-    BaseApplication::start();
+    base()->start();
 
 }
 
 void ConsoleApplication::finish()
 {
-    BaseApplication::finish();
+    base()->finish();
 
 }
 

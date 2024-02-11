@@ -2,11 +2,13 @@
 
 
 #include <QtDebug>
+#include <QCoreApplication>
 #include <QDateTime>
 #include <QTimer>
 #include <QTimeZone>
 #include <QVersionNumber>
 
+#include <ConsoleApplication>
 #include <ConsoleStdIO>
 #include <FileInfo>
 
@@ -14,42 +16,46 @@
 #include "IfSearchProperties.h"
 
 IfSearchApplication::IfSearchApplication(int argc, char *argv[])
-    : ConsoleApplication(argc, argv)
+    : BaseApplication(argc, argv, BaseApplication::Console)
+    , mpInitializer(new IfSearchInitializer(this))
+    , mpProperties(new IfSearchProperties(this))
 {
     setObjectName("IfSearchConsoleApplication:" + QCoreApplication::applicationName());
-    io()->writeline(QString("Hello %1 %2")
+    console()->io()->writeline(QString("Hello %1 %2")
                 .arg(QCoreApplication::applicationName(),
                      QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")));
 }
 
 void IfSearchApplication::initialize()
 {
-    io()->writeline(QString("Initializing %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
-    ConsoleApplication::initialize();
+    console()->io()->writeline(QString("Initializing %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
+    console()->initialize();
     initializer()->initialize();
     emit initialized();
 }
 
 void IfSearchApplication::configure()
 {
-    io()->writeline(QString("Configurating %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
-    ConsoleApplication::configure();
+    console()->io()->writeline(QString("Configurating %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
+    console()->configure();
     // TODO Anything?
     emit configured();
 }
 
 void IfSearchApplication::start()
 {
-    io()->writeline(QString("Starting %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
-    ConsoleApplication::start();
+    initialize();
+    configure();
+    console()->io()->writeline(QString("Starting %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
+    console()->start();
 
     emit started();
 }
 
 void IfSearchApplication::finish()
 {
-    io()->writeline(QString("Finishing %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
-    ConsoleApplication::finish();
+    console()->io()->writeline(QString("Finishing %1").arg(QDateTime::currentDateTime().toString("hh:mm:ss")));
+    console()->finish();
 
     emit finished();
 }

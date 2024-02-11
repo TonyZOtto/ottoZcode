@@ -12,7 +12,7 @@ Q_GLOBAL_STATIC(IfSearchApplication, APP);
 class IfSearchInitializer;
 class IfSearchProperties;
 
-class IfSearchApplication : public ConsoleApplication
+class IfSearchApplication : public BaseApplication
 {
     Q_OBJECT
 public:

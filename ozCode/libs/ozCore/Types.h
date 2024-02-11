@@ -2,11 +2,12 @@
 #pragma once
 
 #include <QtGlobal>
-#include <QByteArray>
 #include <QList>
 #include <QString>
 
+typedef quint8          BYTE;
 typedef quint16         WORD;
+typedef quint32         TRIBYTE;
 typedef quint32         DWORD;
 typedef quint64         QWORD;
 typedef quint128        OWORD;
@@ -16,6 +17,8 @@ typedef qint64          SQWORD;
 typedef qint128         SOWORD;
 typedef quintptr        NWORD;
 typedef qptrdiff        SNWORD;
+typedef signed          INT;
+typedef unsigned        UINT;
 
 typedef QString         UText;
 typedef QWORD           EpochMilliseconds;
