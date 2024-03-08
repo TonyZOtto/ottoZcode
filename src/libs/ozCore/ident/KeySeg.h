@@ -1,5 +1,5 @@
-#ifndef KEYSEG_H
-#define KEYSEG_H
+#pragma once
+#include "../ozCore.h"
 
 #include "AText.h"
 
@@ -9,7 +9,7 @@
 #include <QRegularExpressionMatch>
 #include <QString>
 
-class KeySeg : public AText
+class OZCORE_EXPORT KeySeg : public AText
 {
 public: // types
     typedef QList<KeySeg> List;
@@ -80,4 +80,4 @@ inline char KeySeg::validNextChar(const char ch)
     return result;
 }
 
-#endif // KEYSEG_H
+

@@ -4,7 +4,7 @@
 #include <QSettings>
 #include <QString>
 
-#include "../filesys/FileInfo.h"
+#include "../filesys/QQFileInfo.h"
 
 
 
@@ -31,7 +31,7 @@ public: // const
     Type type() const;
     bool systemScope() const;
     QSettings::Scope scope() const;
-    FileInfo fileInfo() const;
+    QQFileInfo fileInfo() const;
     QString orgName() const;
     QString appName() const;
 
@@ -47,7 +47,7 @@ private:
     QString mString;
     Type mType=$null;
     bool mSystemScope=false;
-    FileInfo mFileInfo;
+    QQFileInfo mFileInfo;
     QString mOrgName;
     QString mAppName;
 };
@@ -61,7 +61,7 @@ inline bool SettingsName::systemScope() const
 {
     return mSystemScope;
 }
-inline FileInfo SettingsName::fileInfo() const
+inline QQFileInfo SettingsName::fileInfo() const
 {
     return mFileInfo;
 }

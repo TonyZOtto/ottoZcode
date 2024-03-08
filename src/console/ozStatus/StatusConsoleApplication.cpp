@@ -3,6 +3,7 @@
 #include <QtDebug>
 #include <QTimer>
 
+#include <QCoreApplication>
 #include <QDateTime>
 #include <QLibrary>
 #include <QLibraryInfo>

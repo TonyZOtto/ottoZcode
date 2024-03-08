@@ -20,11 +20,17 @@ SOURCES += \
     coreapp/ObjectHelper.cpp \
     coreapp/SettingsName.cpp \
     coreapp/WidgetApplication.cpp \
-    filesys/FileInfo.cpp \
+    filesys/QQFileInfo.cpp \
     ident/Key.cpp \
     ident/KeyMap.cpp \
     ident/KeySeg.cpp \
+    ident/KeySegList.cpp \
     ident/VersionInfo.cpp \
+    log/Context.cpp \
+    log/FunctionInfo.cpp \
+    log/LogItem.cpp \
+    log/Logger.cpp \
+    object/QQObject.cpp \
     ozCore.cpp
 
 HEADERS += \
@@ -44,11 +50,19 @@ HEADERS += \
     coreapp/ObjectHelper.h \
     coreapp/SettingsName.h \
     coreapp/WidgetApplication.h \
-    filesys/FileInfo.h \
+    filesys/QQFileInfo.h \
     ident/Key.h \
     ident/KeyMap.h \
     ident/KeySeg.h \
+    ident/KeySegList.h \
     ident/VersionInfo.h \
+    log/Context.h \
+    log/FunctionInfo.h \
+    log/Log.h \
+    log/LogItem.h \
+    log/LogMacros.h \
+    log/Logger.h \
+    object/QQObject.h \
     ozCore_global.h \
     ozCore.h
 

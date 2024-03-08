@@ -1,1 +1,1 @@
-#include "../libs/ozCore/filesys/FileInfo.h"
+#include "../libs/ozCore/filesys/QQFileInfo.h"

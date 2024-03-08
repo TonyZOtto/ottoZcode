@@ -11,7 +11,7 @@
 #include "../ident/KeyMap.h"
 #include "SettingsName.h"
 class BaseApplication;
-class FileInfo;
+class QQFileInfo;
 
 class OZCORE_EXPORT CommandLine : public QObject
 {
@@ -47,7 +47,7 @@ private: // static
 signals:
     void processing(const QString &arg);
     void optionSet(const QCommandLineOption &opt);
-    void including(const FileInfo &fi);
+    void including(const QQFileInfo &fi);
     void value(const Key &key, const QVariant &var);
     void settingsName(const SettingsName &sn);
 
