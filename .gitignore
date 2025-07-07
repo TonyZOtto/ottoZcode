@@ -10,6 +10,9 @@
 *.dll
 *.dylib
 
+# Libre Office
+.~*
+
 # clangd
 */.cache/clangd/*
 .qtc_clangd
